@@ -17,13 +17,24 @@
         theme: {
           extend: {
             colors: {
+              // Original & Primary Grasshopper Colors
               "grass-green": "#00ff41",
               "cyber-blue": "#00dbde",
               "deep-space": "#0a0a0a",
               "code-gray": "#1e1e1e",
               "card-gray": "#151515",
+
+              // App 1 Theme: Void Enigma (Neon Red)
               "neon-red": "#ff073a",
               "answer-neon": "#83ff65",
+
+              // App 2 Theme: Tiny Tales Teller (Kid-Friendly Amber/Green)
+              "tales-amber": "#b45309", // Darker Amber from App
+              "tales-green": "#059669", // Tailwind Green-600 equivalent
+
+              // App 3 Theme: AI Kitchen Navigator (Kitchen/Food Orange/Red)
+              "kitchen-orange": "#ea580c", // Tailwind Orange-600
+              "kitchen-red": "#dc2626", // Tailwind Red-600
             },
             fontFamily: {
               mono: ['"Space Mono"', "monospace"],
@@ -160,42 +171,75 @@
             </a>
           </div>
 
-          <!-- App 2 Card: Creative/Visualization Theme (Cyber Blue) -->
+          <!-- App 2 Card: Tiny Tales Teller (Amber/Green Theme) -->
           <div
-            class="bg-card-gray p-8 rounded-xl border-t-4 border-cyber-blue hover:border-b-4 hover:border-cyber-blue/50 transition-all duration-300 neon-glow-blue"
+            class="bg-card-gray p-8 rounded-xl border-t-4 border-tales-amber hover:border-b-4 hover:border-tales-amber/50 transition-all duration-300 neon-glow-tales"
           >
-            <div class="text-6xl mb-4">🎨</div>
-            <h2 class="text-3xl font-bold font-mono text-cyber-blue mb-3">
-              App 2: Vibe Visualizer
+            <div class="text-6xl mb-4 text-tales-amber">📚</div>
+            <h2 class="text-3xl font-bold font-mono text-tales-amber mb-3">
+              App 2: Tiny Tales Teller
             </h2>
             <p class="text-gray-400 mb-6">
-              An interactive canvas for dynamic visualization of real-time data
-              streams. Experiment with abstract geometry and color palettes in a
-              responsive environment.
+              An AI storyteller that generates custom, kid-friendly tales on
+              demand. Choose a character, theme, and language for an endless
+              bedtime story generator.
             </p>
             <div class="mb-6">
               <span
-                class="inline-block bg-cyber-blue/10 text-cyber-blue text-xs font-mono px-3 py-1 rounded-full mr-2"
-                >#Game</span
+                class="inline-block bg-tales-green/10 text-tales-green text-xs font-mono px-3 py-1 rounded-full mr-2"
+                >#Kids</span
               >
               <span
-                class="inline-block bg-cyber-blue/10 text-cyber-blue text-xs font-mono px-3 py-1 rounded-full"
-                >#Mobile</span
-              >
-              <span
-                class="inline-block bg-cyber-blue/10 text-cyber-blue text-xs font-mono px-3 py-1 rounded-full"
+                class="inline-block bg-tales-green/10 text-tales-green text-xs font-mono px-3 py-1 rounded-full"
                 >#AI</span
               >
               <span
-                class="inline-block bg-cyber-blue/10 text-cyber-blue text-xs font-mono px-3 py-1 rounded-full"
-                >#Puzzle</span
+                class="inline-block bg-tales-green/10 text-tales-green text-xs font-mono px-3 py-1 rounded-full"
+                >#TTS</span
               >
             </div>
             <a
               href="#"
-              class="inline-block bg-cyber-blue text-black font-bold py-3 px-6 rounded-md hover:bg-white transition-all shadow-md"
+              class="inline-block bg-gray-600 text-white font-bold py-3 px-6 rounded-md cursor-not-allowed opacity-75"
+              >
+              <!-- class="inline-block bg-tales-green text-white font-bold py-3 px-6 rounded-md hover:bg-white hover:text-black transition-all cursor-not-allowed shadow-md" -->
+              Coming Soon...
+              <!-- Launch App 2 &gt; -->
+            </a>
+          </div>
+
+          <!-- App 3 Card: AI Kitchen Navigator (Orange/Red Theme - Work In Progress) -->
+          <div
+            class="bg-card-gray p-8 rounded-xl border-t-4 border-kitchen-orange hover:border-b-4 hover:border-kitchen-orange/50 transition-all duration-300 neon-glow-kitchen"
+          >
+            <div class="text-6xl mb-4 text-kitchen-orange">🍳</div>
+            <h2 class="text-3xl font-bold font-mono text-kitchen-orange mb-3">
+              App 3: AI Kitchen Navigator
+            </h2>
+            <p class="text-gray-400 mb-6">
+              (Work in Progress) Generate recipes based on ingredients you have,
+              dietary restrictions, or cooking time. Your personal AI culinary
+              consultant.
+            </p>
+            <div class="mb-6">
+              <span
+                class="inline-block bg-kitchen-red/10 text-kitchen-red text-xs font-mono px-3 py-1 rounded-full mr-2"
+                >#AI</span
+              >
+              <span
+                class="inline-block bg-kitchen-red/10 text-kitchen-red text-xs font-mono px-3 py-1 rounded-full"
+                >#Recipe</span
+              >
+              <span
+                class="inline-block bg-kitchen-red/10 text-kitchen-red text-xs font-mono px-3 py-1 rounded-full"
+                >#Utility</span
+              >
+            </div>
+            <a
+              href="#"
+              class="inline-block bg-gray-600 text-white font-bold py-3 px-6 rounded-md cursor-not-allowed opacity-75"
             >
-              Launch App 2 &gt;
+              Coming Soon...
             </a>
           </div>
         </div>

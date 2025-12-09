@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiny Tales Teller - AI Story Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Kalam (Playful, hand-drawn look) and Inter (Clean text) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // App Theme Colors (based on TinyTalesTeller.html and apps.html)
+              "tales-amber": "#b45309", // Primary Accent (Darker Amber)
+              "tales-green": "#059669", // Action Button Color (Green-600)
+              "tales-bg": "#fef3c7", // Light Background (Beige/Yellow-50)
+              "tales-card": "#fdf6e3", // Card/Panel Background
+              "tales-text": "#374151", // Dark Text
+              "tales-muted": "#6b7280", // Muted Gray
+
+              // Fallback/System Colors
+              "grass-green": "#00ff41",
+            },
+            fontFamily: {
+              // Kalam for headers and playful elements
+              headline: ['"Kalam"', "cursive"],
+              // Inter for body text (clean and readable)
+              sans: ['"Inter"', "sans-serif"],
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom scrollbar to match the friendly theme */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fef3c7; /* Light background */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #f59e0b; /* Orange/Amber thumb */
+        border: 1px solid #b45309; /* Dark amber border */
+        border-radius: 4px;
+      }
+      /* Soft Glow for the Playful Theme */
+      .soft-glow-amber {
+        box-shadow: 0 4px 20px rgba(180, 83, 9, 0.2),
+          0 0 8px rgba(180, 83, 9, 0.1);
+      }
+      /* Remove the scroll-smooth from the body to avoid conflicting with the HTML tag, if necessary */
+      body {
+        background-color: var(--tw-colors-tales-bg);
+      }
+    </style>
+  </head>
+  <body class="bg-tales-bg text-tales-text font-sans antialiased min-h-screen">
+    <!-- Navigation (Simple and Clean) -->
+    <nav
+      class="fixed w-full z-50 bg-tales-bg/90 backdrop-blur-sm border-b border-tales-amber/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center group cursor-pointer">
+            <span class="text-3xl mr-2 text-tales-green">📚</span>
+            <span
+              class="text-2xl font-headline font-bold text-tales-amber transition-colors"
+              >Tiny Tales Teller</span
+            >
+          </div>
+          <div class="md:block">
+            <a
+              href="apps.html"
+              class="border border-tales-green text-tales-green hover:bg-tales-green hover:text-white px-4 py-2 rounded-full text-sm font-sans transition-all font-semibold soft-glow-amber"
+            >
+              &lt; Back to App Center
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- App Landing Header -->
+    <header class="pt-32 pb-16 lg:pt-40 lg:pb-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1
+          class="text-5xl md:text-7xl font-bold font-headline tracking-tight mb-4 text-tales-amber"
+        >
+          Dream Up a Story!
+        </h1>
+        <p class="text-xl text-tales-text max-w-2xl mx-auto font-sans">
+          The AI-powered storyteller that generates custom, unique, and safe
+          bedtime stories for kids, instantly.
+        </p>
+      </div>
+    </header>
+
+    <!-- Content Tabs and Container -->
+    <section class="pb-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Tab Navigation -->
+        <div class="flex border-b-2 border-tales-amber/30 mb-8">
+          <button
+            id="tab-game"
+            onclick="showTab('game')"
+            class="px-6 py-3 text-lg font-headline font-bold border-b-4 border-tales-green text-tales-green -mb-0.5 transition-colors focus:outline-none"
+          >
+            Storyteller Details
+          </button>
+          <button
+            id="tab-policy"
+            onclick="showTab('policy')"
+            class="px-6 py-3 text-lg font-headline font-bold border-b-4 border-transparent text-tales-muted hover:text-tales-amber transition-colors focus:outline-none"
+          >
+            Privacy & Safety
+          </button>
+        </div>
+
+        <!-- Tab Content Containers -->
+
+        <!-- Storyteller Details Tab -->
+        <div
+          id="game-details"
+          class="space-y-8 bg-tales-card p-6 md:p-10 rounded-xl soft-glow-amber"
+        >
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2 space-y-4">
+              <h2 class="text-3xl font-headline font-bold text-tales-amber">
+                How It Works: Magic On Demand
+              </h2>
+              <p class="text-tales-text">
+                Tiny Tales Teller uses the power of Google's Gemini AI to
+                instantly weave a unique tale. Simply choose a few options—like
+                a main character (dragon, princess, astronaut), a story theme
+                (courage, friendship, space), and a desired mood—and the AI
+                creates a brand-new adventure just for you.
+              </p>
+              <ul
+                class="list-disc list-inside text-tales-text space-y-2 pl-4 pt-2"
+              >
+                <li>
+                  **Custom Themes:** Adventure, learning, silly, and more.
+                </li>
+                <li>
+                  **Instant Audio:** Optional **Text-to-Speech (TTS)** voice
+                  reads the story aloud.
+                </li>
+                <li>
+                  **Always Safe:** Content is filtered to be positive,
+                  appropriate, and fun for all ages.
+                </li>
+              </ul>
+              <a
+                href="TinyTalesTeller.html"
+                class="mt-6 inline-block bg-tales-green text-white font-bold py-3 px-8 rounded-full hover:bg-tales-amber transition-all shadow-lg"
+              >
+                Launch Storyteller Now &gt;
+              </a>
+            </div>
+            <div class="md:w-1/2">
+              <img
+                src="https://placehold.co/600x400/b45309/ffffff?text=Storybook+Mockup"
+                alt="Mockup of the Tiny Tales Teller app with a fantasy character"
+                class="rounded-lg w-full h-auto object-cover soft-glow-amber"
+              />
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-tales-amber/20">
+            <h3 class="text-2xl font-headline font-bold text-tales-amber mb-3">
+              Parental Peace of Mind
+            </h3>
+            <p class="text-tales-text">
+              We designed this app with children's safety as the top priority.
+              All generated stories adhere to strict content safety guidelines,
+              ensuring the narratives are positive, educational, and free from
+              inappropriate material.
+            </p>
+          </div>
+        </div>
+
+        <!-- Privacy Policy Tab -->
+        <div
+          id="privacy-policy"
+          class="hidden bg-tales-card p-6 md:p-10 rounded-xl soft-glow-amber"
+        >
+          <h2 class="text-3xl font-headline font-bold text-tales-amber mb-4">
+            Our Commitment to Privacy
+          </h2>
+          <p class="text-tales-text mb-4">
+            The Tiny Tales Teller app is provided by **Grasshopper IT Solutions,
+            LLC**. We do not require accounts, user profiles, or collect any
+            Personally Identifiable Information (PII) like names, emails, or
+            precise location from children or adults.
+          </p>
+
+          <h3 class="text-xl font-headline font-bold text-tales-green mt-6">
+            Data Interaction (Gemini & TTS)
+          </h3>
+          <p class="text-tales-text">
+            When a story is generated, the app sends a prompt (based on your
+            selections: e.g., "Write a story about a brave fox and friendship")
+            to the **Google Gemini API** for text and a **TTS API** for audio.
+          </p>
+          <ul class="list-disc list-inside text-tales-text space-y-2 pl-4 pt-2">
+            <li>
+              **Input Data:** Limited to generic selections (character, theme,
+              tone) and **does not** contain personal identifiers.
+            </li>
+            <li>
+              **Generated Content:** The story text and audio are rendered on
+              your device and are **not** stored on our servers.
+            </li>
+            <li>
+              **Child Safety:** We are committed to COPPA compliance. We do not
+              knowingly solicit or store personal information from children
+              under 13.
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-headline font-bold text-tales-green mt-6">
+            Contact Us
+          </h3>
+          <p class="text-tales-text">
+            For any questions about privacy or safety, please contact us at:
+            **grasshopper.it.solutions@gmail.com**.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tales-amber/10 py-12 border-t border-tales-amber/30">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-tales-muted text-sm font-sans mb-2">
+          &copy; 2024 Grasshopper IT Solutions.
+        </p>
+        <p class="text-xs text-tales-muted font-sans">
+          A safe space for imagination.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+      function showTab(tabName) {
+        const gameDetails = document.getElementById("game-details");
+        const privacyPolicy = document.getElementById("privacy-policy");
+        const tabGame = document.getElementById("tab-game");
+        const tabPolicy = document.getElementById("tab-policy");
+
+        // Helper function for class manipulation
+        const toggleClasses = (element, addClasses, removeClasses) => {
+          element.classList.add(...addClasses.split(" ").filter((c) => c));
+          element.classList.remove(
+            ...removeClasses.split(" ").filter((c) => c)
+          );
+        };
+
+        const activeBorder = "border-tales-green";
+        const activeText = "text-tales-green";
+        const inactiveText = "text-tales-muted hover:text-tales-amber";
+        const inactiveBorder = "border-transparent";
+
+        if (tabName === "game") {
+          gameDetails.classList.remove("hidden");
+          privacyPolicy.classList.add("hidden");
+
+          toggleClasses(
+            tabGame,
+            `${activeBorder} ${activeText}`,
+            `${inactiveBorder} ${inactiveText}`
+          );
+          toggleClasses(
+            tabPolicy,
+            `${inactiveBorder} ${inactiveText}`,
+            `${activeBorder} ${activeText}`
+          );
+        } else if (tabName === "policy") {
+          gameDetails.classList.add("hidden");
+          privacyPolicy.classList.remove("hidden");
+
+          toggleClasses(
+            tabPolicy,
+            `${activeBorder} ${activeText}`,
+            `${inactiveBorder} ${inactiveText}`
+          );
+          toggleClasses(
+            tabGame,
+            `${inactiveBorder} ${inactiveText}`,
+            `${activeBorder} ${activeText}`
+          );
+        }
+      }
+
+      // Initialize with the game details tab open
+      window.onload = () => showTab("game");
+    </script>
+  </body>
+</html>
